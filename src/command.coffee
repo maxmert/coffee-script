@@ -49,6 +49,7 @@ SWITCHES = [
   ['-v', '--version',         'display the version number']
   ['-w', '--watch',           'watch scripts for changes and rerun commands']
   ['-f', '--fluent',          'compile without any extension']
+  ['-q', '--quiet',           'do not print comment about coffee version on the first line of the compiled file']
 ]
 
 # Top-level objects shared by all the functions.
@@ -330,7 +331,7 @@ compileOptions = (filename) ->
     filename
     literate: helpers.isLiterate(filename)
     bare: opts.bare
-    header: opts.compile
+    header: not opts.quiet
     sourceMap: opts.map
   }
 
